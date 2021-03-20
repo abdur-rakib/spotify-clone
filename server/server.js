@@ -16,12 +16,13 @@ app.post("/login", (req, res) => {
     .authorizationCodeGrant(code)
     .then((data) => {
       res.json({
-        accessToken: data.body.accessToken,
-        refreshToken: data.body.refreshToken,
-        expiresIn: data.body.expiresIn,
+        accessToken: data.body.access_token,
+        refreshToken: data.body.refresh_token,
+        expiresIn: data.body.expires_in,
       });
     })
     .catch((err) => {
+      console.log("Error at login route server.js", err);
       res.sendStatus(400);
     });
 });
@@ -46,4 +47,4 @@ app.post("/refresh", (req, res) => {
     })
     .catch((err) => res.sendStatus(400));
 });
-app.listen(30001);
+app.listen(3001);

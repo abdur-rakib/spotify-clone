@@ -14,6 +14,7 @@ const useAuth = (code) => {
         window.history.pushState({}, null, "/");
       })
       .catch((err) => {
+        console.log(err);
         window.location = "/";
       });
   }, [code]);
